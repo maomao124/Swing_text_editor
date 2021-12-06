@@ -351,9 +351,28 @@ public class test
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                if (jTextArea.getText().length()!=0)
+                if (jTextArea.getText().length() != 0)
                 {
                     //todo:是否追加
+                    String[] selection = {"文件数据插入到文本域的后面", "使用文件里的数据替换文本域里的数据"};
+                    Toolkit.getDefaultToolkit().beep();
+                    int result;
+                    result = JOptionPane.showOptionDialog(null, "文本域数据不为空！请选择更新模式！"
+                            , "警告", 0, 0, null, selection, 0);
+                    if (result == 0)
+                    {
+                        label2.setText("从第" + (jTextArea.getText().length() - 1) + "个位置插入文件数据");
+                    }
+                    else if (result == 1)
+                    {
+                        jTextArea.setText("");
+                        label2.setText("文本域原来的数据已丢失");
+                    }
+                    else             //按到了关闭按钮
+                    {
+                        label2.setText("取消操作");
+                        return;
+                    }
                 }
                 JFileChooser jFileChooser = new JFileChooser(".");
                 int result = jFileChooser.showOpenDialog(null);
