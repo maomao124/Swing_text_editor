@@ -90,6 +90,7 @@ public class test
                     label2.setText("请稍后，正在计算MD5值...");
                     fileMD5 = MD5.getFileMD5(file.getAbsolutePath());
                     testAreaMD5 = MD5.getMD5(jTextArea.getText());
+                    label2.setText("MD5值计算完成");
                 }
                 if (file == null)
                 {
@@ -438,6 +439,11 @@ public class test
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                if (jTextArea.getText().length() == 0)
+                {
+                    label2.setText("文本域为空,没必要保存");
+                    return;
+                }
                 if (test.file == null)
                 {
                     JFileChooser jFileChooser = new JFileChooser(".");
