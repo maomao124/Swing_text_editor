@@ -25,6 +25,9 @@ import java.io.FileWriter;
 
 public class test
 {
+    private static JFrame jFrame;
+    private static JPanel jPanel;
+    private static JPanel jPanel1;    //文件信息面板
     private JLabel label = new JLabel("所选文件路径：");
     private JTextField jTextField = new JTextField(25);
     private JButton button = new JButton("浏览");
@@ -32,6 +35,7 @@ public class test
     private JButton button_save_file = new JButton("另存为");
     private JButton button2 = new JButton("编辑模式");
     private JButton button3 = new JButton("文件信息");
+    private static JButton button4 = new JButton("<-返回");
 
     boolean isEditable = true;
     private static File file;
@@ -39,11 +43,11 @@ public class test
 
     public test()
     {
-        JFrame jFrame = new JFrame("文件选择测试-文件编辑器");
+        jFrame = new JFrame("文件选择测试-文件编辑器");
         jFrame.setSize(1280, 720);
         jFrame.setLocation(1920 / 2 - 640, 1080 / 2 - 360);
         jFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        JPanel jPanel = new JPanel();
+        jPanel = new JPanel();
         JTextArea jTextArea = new JTextArea(720 / 28, 1280 / 11);
         JScrollPane jScrollPane = new JScrollPane();
         Font font = new Font("宋体", Font.PLAIN, 19);
