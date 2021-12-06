@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -74,8 +75,19 @@ public class FileInformation
         }
         jTextArea_FileInformation.setText("文件信息：\n");
         File file = test.getFile();
+        DecimalFormat decimalFormat = new DecimalFormat("###.##");
         jTextArea_FileInformation.append("文件名称：" + file.getName());
-        jTextArea_FileInformation.append("\n文件大小：" + file.length() + "字节  =" + file.length() / 1024 + "KB");
+        if (file.length() < 1048576)
+        {
+            jTextArea_FileInformation.append("\n文件大小：" + file.length() + "字节  =" +
+                    decimalFormat.format(file.length() / 1024) + "KB");
+        }
+        else
+        {
+            jTextArea_FileInformation.append("\n文件大小：" + file.length() + "字节  =" +
+                    decimalFormat.format(file.length() / 1024) + "KB  =" +
+                    decimalFormat.format((file.length() / 1024 / 1024)) + "MB");
+        }
         jTextArea_FileInformation.append("\n文件相对路径：" + file.getPath());
         jTextArea_FileInformation.append("\n文件绝对路径：" + file.getAbsolutePath());
         if (file.canRead())
