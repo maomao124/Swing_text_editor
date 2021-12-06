@@ -3,6 +3,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 /**
  * Project name(项目名称)：Swing文本编辑器
@@ -65,6 +66,29 @@ public class FileInformation
                     "还未指定文件目录！！！", "提示", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        jTextArea_FileInformation.setText("文件信息：\n");
+        File file = test.getFile();
+        jTextArea_FileInformation.append("文件名称：" + file.getName());
+        jTextArea_FileInformation.append("\n文件大小：" + file.length() + "字节  =" + file.length() / 1024 + "KB");
+        jTextArea_FileInformation.append("\n文件相对路径：" + file.getPath());
+        jTextArea_FileInformation.append("\n文件绝对路径：" + file.getAbsolutePath());
+        if (file.canRead())
+        {
+            jTextArea_FileInformation.append("\n文件是否能读？：是");
+        }
+        else
+        {
+            jTextArea_FileInformation.append("\n文件是否能读？：否");
+        }
+        if (file.canWrite())
+        {
+            jTextArea_FileInformation.append("\n文件是否能写？：是");
+        }
+        else
+        {
+            jTextArea_FileInformation.append("\n文件是否能写？：否");
+        }
+        jTextArea_FileInformation.append("\n最后修改时间：" + file.lastModified());
         JFrame jFrame = test.getjFrame();
         jFrame.remove(test.getjPanel());
         jFrame.add(test.getjPanel1());
