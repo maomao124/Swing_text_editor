@@ -34,8 +34,68 @@ public class test
     private JButton button1 = new JButton("保存");
     private JButton button_save_file = new JButton("另存为");
     private JButton button2 = new JButton("编辑模式");
-    private JButton button3 = new JButton("文件信息");
+    private static JButton button3 = new JButton("文件信息");
     private static JButton button4 = new JButton("<-返回");
+
+    public static JButton getButton3()
+    {
+        return button3;
+    }
+
+    public static void setButton3(JButton button3)
+    {
+        test.button3 = button3;
+    }
+
+    public static JFrame getjFrame()
+    {
+        return jFrame;
+    }
+
+    public static void setjFrame(JFrame jFrame)
+    {
+        test.jFrame = jFrame;
+    }
+
+    public static JPanel getjPanel()
+    {
+        return jPanel;
+    }
+
+    public static void setjPanel(JPanel jPanel)
+    {
+        test.jPanel = jPanel;
+    }
+
+    public static JPanel getjPanel1()
+    {
+        return jPanel1;
+    }
+
+    public static void setjPanel1(JPanel jPanel1)
+    {
+        test.jPanel1 = jPanel1;
+    }
+
+    public static JButton getButton4()
+    {
+        return button4;
+    }
+
+    public static void setButton4(JButton button4)
+    {
+        test.button4 = button4;
+    }
+
+    public static File getFile()
+    {
+        return file;
+    }
+
+    public static void setFile(File file)
+    {
+        test.file = file;
+    }
 
     boolean isEditable = true;
     private static File file;
@@ -73,6 +133,7 @@ public class test
         jPanel.add(label2);
         jFrame.add(jPanel);
         jFrame.setVisible(true);
+        FileInformation.init();
         jFrame.addWindowListener(new WindowListener()
         {
             @Override
