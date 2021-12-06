@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Project name(项目名称)：Swing文本编辑器
@@ -25,7 +27,11 @@ public class FileInformation
 
     public static void init()
     {
-        jTextArea_FileInformation = new JTextArea(30, 60);
+        jTextArea_FileInformation = new JTextArea(15, 60);
+        jTextArea_FileInformation.setLineWrap(true);
+        jTextArea_FileInformation.setEditable(false);
+        Font font = new Font("宋体", Font.PLAIN, 22);
+        jTextArea_FileInformation.setFont(font);
         jScrollPane = new JScrollPane(jTextArea_FileInformation);
         JPanel jPanel = new JPanel();
         test.setjPanel1(jPanel);
@@ -88,7 +94,9 @@ public class FileInformation
         {
             jTextArea_FileInformation.append("\n文件是否能写？：否");
         }
-        jTextArea_FileInformation.append("\n最后修改时间：" + file.lastModified());
+        Date date = new Date(file.lastModified());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年 MM月 dd日   E   HH点 mm分 ss秒");
+        jTextArea_FileInformation.append("\n最后修改时间：" + simpleDateFormat.format(date));
         JFrame jFrame = test.getjFrame();
         jFrame.remove(test.getjPanel());
         jFrame.add(test.getjPanel1());
@@ -102,6 +110,5 @@ public class FileInformation
         jFrame.remove(test.getjPanel1());
         jFrame.add(test.getjPanel());
         jFrame.repaint();
-
     }
 }
