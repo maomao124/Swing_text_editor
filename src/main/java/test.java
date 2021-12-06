@@ -269,6 +269,11 @@ public class test
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                if (jTextArea.getText().length() == 0)
+                {
+                    label2.setText("文本域为空,没必要保存");
+                    return;
+                }
                 JFileChooser jFileChooser = new JFileChooser(".");
                 int result = jFileChooser.showSaveDialog(null);
                 if (result == JFileChooser.APPROVE_OPTION)
