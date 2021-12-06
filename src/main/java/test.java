@@ -103,7 +103,7 @@ public class test
 
     public test()
     {
-        jFrame = new JFrame("文件选择测试-文件编辑器");
+        jFrame = new JFrame("文本编辑器");
         jFrame.setSize(1280, 720);
         jFrame.setLocation(1920 / 2 - 640, 1080 / 2 - 360);
         jFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);

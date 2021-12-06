@@ -28,7 +28,7 @@ public class FileInformation
 
     public static void init()
     {
-        jTextArea_FileInformation = new JTextArea(15, 60);
+        jTextArea_FileInformation = new JTextArea(15, 55);
         jTextArea_FileInformation.setLineWrap(true);
         jTextArea_FileInformation.setEditable(false);
         Font font = new Font("宋体", Font.PLAIN, 22);
@@ -73,42 +73,42 @@ public class FileInformation
                     "还未指定文件目录！！！", "提示", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        jTextArea_FileInformation.setText("文件信息：\n");
+        jTextArea_FileInformation.setText("\t\t文件信息：\n\n");
         File file = test.getFile();
         DecimalFormat decimalFormat = new DecimalFormat("###.##");
-        jTextArea_FileInformation.append("文件名称：" + file.getName());
+        jTextArea_FileInformation.append("\t文件名称：" + file.getName());
         if (file.length() < 1048576)
         {
-            jTextArea_FileInformation.append("\n文件大小：" + file.length() + "字节  =" +
-                    decimalFormat.format(file.length() / 1024) + "KB");
+            jTextArea_FileInformation.append("\n\t文件大小：" + file.length() + "字节  =" +
+                    decimalFormat.format((double) file.length() / 1024) + "KB");
         }
         else
         {
-            jTextArea_FileInformation.append("\n文件大小：" + file.length() + "字节  =" +
-                    decimalFormat.format(file.length() / 1024) + "KB  =" +
-                    decimalFormat.format((file.length() / 1024 / 1024)) + "MB");
+            jTextArea_FileInformation.append("\n\t文件大小：" + file.length() + "字节  =" +
+                    decimalFormat.format((double)file.length() / 1024) + "KB  =" +
+                    decimalFormat.format((double)(file.length() / 1024 / 1024)) + "MB");
         }
-        jTextArea_FileInformation.append("\n文件相对路径：" + file.getPath());
-        jTextArea_FileInformation.append("\n文件绝对路径：" + file.getAbsolutePath());
+        jTextArea_FileInformation.append("\n\t文件相对路径：" + file.getPath());
+        jTextArea_FileInformation.append("\n\t文件绝对路径：" + file.getAbsolutePath());
         if (file.canRead())
         {
-            jTextArea_FileInformation.append("\n文件是否能读？：是");
+            jTextArea_FileInformation.append("\n\t文件是否能读？：是");
         }
         else
         {
-            jTextArea_FileInformation.append("\n文件是否能读？：否");
+            jTextArea_FileInformation.append("\n\t文件是否能读？：否");
         }
         if (file.canWrite())
         {
-            jTextArea_FileInformation.append("\n文件是否能写？：是");
+            jTextArea_FileInformation.append("\n\t文件是否能写？：是");
         }
         else
         {
-            jTextArea_FileInformation.append("\n文件是否能写？：否");
+            jTextArea_FileInformation.append("\n\t文件是否能写？：否");
         }
         Date date = new Date(file.lastModified());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年 MM月 dd日   E   HH点 mm分 ss秒");
-        jTextArea_FileInformation.append("\n最后修改时间：" + simpleDateFormat.format(date));
+        jTextArea_FileInformation.append("\n\t最后修改时间：" + simpleDateFormat.format(date));
         JFrame jFrame = test.getjFrame();
         jFrame.remove(test.getjPanel());
         jFrame.add(test.getjPanel1());
