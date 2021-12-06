@@ -36,7 +36,7 @@ public class FileInformation
         JPanel jPanel2 = new JPanel();
         jPanel2.setLayout(new FlowLayout());
         jPanel2.add(button);
-        jPanel.add(jPanel2,BorderLayout.SOUTH);
+        jPanel.add(jPanel2, BorderLayout.SOUTH);
         button.setBackground(Color.cyan);
         button.addActionListener(new ActionListener()
         {
@@ -58,6 +58,13 @@ public class FileInformation
 
     public static void display()
     {
+        if (test.getFile() == null)
+        {
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(null,
+                    "还未指定文件目录！！！", "提示", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         JFrame jFrame = test.getjFrame();
         jFrame.remove(test.getjPanel());
         jFrame.add(test.getjPanel1());
