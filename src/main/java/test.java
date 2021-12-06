@@ -430,7 +430,7 @@ public class test
                     Toolkit.getDefaultToolkit().beep();
                     int result;
                     result = JOptionPane.showOptionDialog(null, "文本域数据不为空！请选择更新模式！"
-                            , "警告", 0, 0, null, selection, 0);
+                            , "警告", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, selection, 0);
                     if (result == 0)
                     {
                         label2.setText("从第" + (jTextArea.getText().length() - 1) + "个位置插入文件数据");
