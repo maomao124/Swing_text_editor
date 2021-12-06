@@ -32,6 +32,7 @@ public class test
     private JButton button_save_file = new JButton("另存为");
     private JButton button2 = new JButton("编辑模式");
     private JButton button3 = new JButton("文件信息");
+
     boolean isEditable = true;
     private static File file;
     private JLabel label2 = new JLabel("欢迎使用文件编辑器", JLabel.CENTER);      //状态位
