@@ -452,11 +452,11 @@ public class test
                 {
                     jTextField.setText(jFileChooser.getSelectedFile().toString());
                     file = jFileChooser.getSelectedFile();
-
-
+                    label2.setText("正在加载...");
                     FileReader fileReader = null;
                     try                                  //文件流打开，文件读写
                     {
+
                         fileReader = new FileReader(file);
                         char[] buffer = new char[1024];
                         int count = 0;
@@ -465,6 +465,7 @@ public class test
                             jTextArea.append(new String(buffer, 0, count));
                             //System.out.println(new String(buffer, 0, count));
                         }
+                        label2.setText("加载完成");
 
                     }
                     catch (FileNotFoundException e1)      //文件未找到
@@ -527,6 +528,7 @@ public class test
                         FileWriter fileWriter = null;
                         try                                  //文件流打开，文件读写
                         {
+                            label2.setText("正在保存...");
                             fileWriter = new FileWriter(file);
                             fileWriter.write(jTextArea.getText());
                             label2.setText("保存成功");
@@ -573,6 +575,7 @@ public class test
                     FileWriter fileWriter = null;
                     try                                  //文件流打开，文件读写
                     {
+                        label2.setText("正在保存...");
                         fileWriter = new FileWriter(test.file);
                         fileWriter.write(jTextArea.getText());
                         label2.setText("保存成功");
